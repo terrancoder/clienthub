@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ClientList from './components/ClientList';
 
 function App() {
   // Check localStorage or default to false
@@ -38,12 +39,15 @@ function App() {
             Welcome to Your Client Dashboard
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Built by [Your Name] – Turning ideas into revenue.
+            Built by TerranCoders – Turning ideas into revenue.
           </p>
           <div className="mt-8">
             <div className="inline-block animate-bounce text-6xl">🚀</div>
           </div>
         </div>
+
+
+        <ClientList />
       </main>
     </div>
   );
