@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import ClientList from './components/ClientList';
+import KanbanBoard from './components/KanbanBoard';
+import DashboardStats from './components/DashboardStats';
 
 function App() {
   // Check localStorage or default to false
@@ -46,7 +48,8 @@ function App() {
           </div>
         </div>
 
-
+        <DashboardStats/>
+        <KanbanBoard/>
         <ClientList />
       </main>
     </div>
