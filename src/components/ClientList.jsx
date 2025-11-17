@@ -1,4 +1,4 @@
-// src/components/ClientList.jsx
+
 import { useClients } from '../context/ClientContext';
 import { useState } from 'react';
 import ClientForm from './ClientForm';
@@ -8,6 +8,15 @@ export default function ClientList() {
   const { clients, deleteClient } = useClients();
   const [modalOpen, setModalOpen] = useState(false);
   const [editingClient, setEditingClient] = useState(null);
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('All');
+
+  const filteredClients = clients
+    .filter(c => 
+      (c.name.toLowerCase().includes(search.toLowerCase()) || 
+       c.company.toLowerCase().includes(search.toLowerCase()))
+    )
+    .filter(c => filter === 'All' || c.status === filter);
 
   const openModal = (client = null) => {
     setEditingClient(client);
@@ -15,10 +24,10 @@ export default function ClientList() {
   };
 
   return (
-    <div className="mt-8">
-      <div className="flex justify-between items-center mb-6">
+    <div className="mt-12">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Clients ({clients.length})
+          Client Directory ({filteredClients.length})
         </h2>
         <button
           onClick={() => openModal()}
@@ -28,13 +37,33 @@ export default function ClientList() {
         </button>
       </div>
 
-      {clients.length === 0 ? (
+      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+        <input
+          type="text"
+          placeholder="Search name or company..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+        />
+        <select
+          value={filter}
+          onChange={e => setFilter(e.target.value)}
+          className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+        >
+          <option>All</option>
+          <option>To-Do</option>
+          <option>In Progress</option>
+          <option>Done</option>
+        </select>
+      </div>
+
+      {filteredClients.length === 0 ? (
         <p className="text-gray-500 dark:text-gray-400 text-center py-8">
-          No clients yet. Add your first one!
+          {search || filter !== 'All' ? 'No clients match your search.' : 'No clients yet. Add your first one!'}
         </p>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {clients.map(client => (
+          {filteredClients.map(client => (
             <div
               key={client.id}
               className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition"

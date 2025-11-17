@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import ClientList from './components/ClientList';
-import KanbanBoard from './components/KanbanBoard';
 import DashboardStats from './components/DashboardStats';
+import KanbanBoard from './components/KanbanBoard';
+import ClientList from './components/ClientList';
 
 function App() {
-  // Check localStorage or default to false
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem('darkMode') === 'true';
   });
@@ -36,22 +35,23 @@ function App() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-12">
-        <div className="text-center">
+        <div className="text-center mb-12">
           <h2 className="text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-4">
-            Welcome to Your Client Dashboard
+            Client Dashboard
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Built by TerranCoders – Turning ideas into revenue.
+            Built by <strong>TerranCoder</strong> – Real clients, real results.
           </p>
-          <div className="mt-8">
-            <div className="inline-block animate-bounce text-6xl">🚀</div>
-          </div>
         </div>
 
-        <DashboardStats/>
-        <KanbanBoard/>
+        <DashboardStats />
+        <KanbanBoard />
         <ClientList />
       </main>
+
+      <footer className="mt-16 text-center text-sm text-gray-500 dark:text-gray-400">
+        © 2025 ClientHub by TerranCoder. All rights reserved.
+      </footer>
     </div>
   );
 }

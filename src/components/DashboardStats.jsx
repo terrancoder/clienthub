@@ -1,4 +1,3 @@
-// src/components/DashboardStats.jsx
 import { useClients } from '../context/ClientContext';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 
@@ -19,9 +18,28 @@ export default function DashboardStats() {
   ].filter(d => d.value > 0);
 
   return (
-    // ← ONE PARENT: <div>
+
     <div className="space-y-8">
-      {/* Stats Cards */}
+      <div className="flex justify-end mb-4">
+        <button
+            onClick={() => {
+            const headers = ['Name', 'Email', 'Company', 'Revenue', 'Status'];
+            const rows = clients.map(c => [
+                c.name, c.email, c.company, c.revenue || 0, c.status
+            ]);
+            const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `clients_${new Date().toISOString().slice(0,10)}.csv`;
+            a.click();
+            }}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm transition flex items-center gap-2"
+        >
+            Export CSV
+        </button>
+    </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
           <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Clients</h3>
@@ -39,7 +57,7 @@ export default function DashboardStats() {
         </div>
       </div>
 
-      {/* Pie Chart */}
+      
       <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
           Status Distribution
@@ -66,6 +84,5 @@ export default function DashboardStats() {
         </ResponsiveContainer>
       </div>
     </div>
-    // ← END OF SINGLE PARENT
   );
 }
