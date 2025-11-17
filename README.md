@@ -1,16 +1,29 @@
-# React + Vite
+# ClientHub – Freelancer CRM Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo:** https://clienthub-terrancoder.netlify.app  
+**Built using** · React + Vite + Tailwind + dnd-kit + recharts
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+### Features
+- Add / Edit / Delete clients with modal forms
+- Drag-and-drop Kanban board (To-Do → In Progress → Done)
+- Real-time analytics dashboard with interactive pie chart
+- Search & filter clients
+- One-click CSV export
+- Dark mode with persistence
+- Fully responsive (mobile ↔ desktop)
+- Zero backend – 100% client-side with localStorage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Tech Stack
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat&logo=vite&logoColor=FFD62E)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
+![dnd-kit](https://img.shields.io/badge/dnd--kit-000000?style=flat&logo=react-table&logoColor=white)
+![recharts](https://img.shields.io/badge/recharts-0,8,20.svg?style=flat&logo=recharts&logoColor=white)
 
-## Expanding the ESLint configuration
+### Perfect for freelancers & agencies
+I built this exact tool to manage my own clients.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Want something similar (or better) for your business?  
+Let’s talk → terrancoders@gmail.com
