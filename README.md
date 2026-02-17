@@ -22,8 +22,4 @@
 ![dnd-kit](https://img.shields.io/badge/dnd--kit-000000?style=flat&logo=react-table&logoColor=white)
 ![recharts](https://img.shields.io/badge/recharts-0,8,20.svg?style=flat&logo=recharts&logoColor=white)
 
-### Perfect for freelancers & agencies
-I built this exact tool to manage my own clients.
 
-Want something similar (or better) for your business?  
-Let’s talk → terrancoders@gmail.com
